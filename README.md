@@ -1,6 +1,6 @@
 # DataStructures
 > Exercises on Data Structures & Algorithms
 ## Data Structures
-Linked list(LL.py) basic exercise
+Linked list basic exercise (LL.py)
 ## Algorithms
-Recursion(recursion.py) review
+Recursion review (recursion.py)
