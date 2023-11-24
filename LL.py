@@ -25,6 +25,7 @@ class LinkedList:
             self.front.next = self.front.next.next
             self.front.next.next.prev = self.front
             del rm
+
     def __str__(self):
         copy = self.front
         list = []
@@ -32,6 +33,9 @@ class LinkedList:
             list.append(copy.next.data)
             copy = copy.next
         return str(list)
+    
+    
+
 
 # ll1 = LinkedList()
 # ll1.push_front(10)

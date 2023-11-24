@@ -17,26 +17,62 @@ class HashTable:
 	def __init__(self, cap=32):
 		self.list = [None] * cap
 		self.cap = cap
+		self.total = 0
+
 	def insert(self,key, value):
 		idx = hash(key) % self.cap
 		if(self.list[idx] is None):
 			self.list[idx] = LinkedList()
 		self.list[idx].push_front([key, value])
+		self.total= self.total + 1
 
 	def modify(self, key, value):
-		pass
+		idx = hash(key) % self.cap
+		copy = self.list[idx].front
+		# self.list[idx] is the Linked list. 
+		#While traversing the list
+		while(copy.next is not self.list[idx].back):
+			if copy.next.data[0] == key:
+				#change the value
+				copy.next.data[1] = value
+				return True
+			copy = copy.next
+		return False
 
-	def remove(self, key):
-		pass
+	def remove(self, key): 
+		idx = hash(key) % self.cap
+		copy = self.list[idx].front.next
+		# self.list[idx] is the Linked list. 
+		#While traversing the list
+		while(copy is not self.list[idx].back):
+			if copy.data[0] == key:
+				copy.next.prev = copy.prev
+				copy.prev.next = copy.next
+			copy = copy.next
+		return None
+	
+	# rm = self.front.next
+# rm.next.prev = rm.prev
+# rm.prev.next = rm.next
 
 	def search(self, key):
-		pass
+		idx = hash(key) % self.cap
+		copy = self.list[idx].front
+		# self.list[idx] is the Linked list. 
+		#While traversing the list
+		while(copy.next is not self.list[idx].back):
+			if copy.next.data[0] == key:
+				return copy.next.data[1] #return the value
+			copy = copy.next
+		return None
+
+
 
 	def capacity(self):
-		pass
+		return self.cap
 
 	def __len__(self):
-		pass
+		return self.total
 
 	def display(self):
 		for i in range(self.cap):
@@ -52,6 +88,15 @@ h1.insert(4, 23)
 h1.insert(7, 48)
 h1.insert(15, 24)
 h1.display()
+print("----------------")
+#result = h1.search(1)
+#print(result)
+h1.modify(1, 1000)
+h1.display()
+h1.remove(1)
+print("----------------")
+h1.display()
+
 
 #1. get the list from the LL.
 #2. take care of collisions
