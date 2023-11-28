@@ -38,7 +38,7 @@ class DoublyLinked:
             self.front.prev = node
             self.front = node
 
-    def push_back(self,data):
+    def push_back(self, data):
         node = self.Node(data)
 
         if self.back is None:
@@ -105,7 +105,7 @@ class DoublyLinked:
         current = self.front
 
         while current:
-            if current.data == data:
+            if current.data[0] == data:
                 return current
             
             current = current.next
@@ -135,13 +135,9 @@ class DoublyLinked:
         return self.is_palindrome_rec(self.front, self.back)
     
     def __str__(self):
-        if self.is_empty():
-            return ''
-        if self.__len__() == 1:
-            return str(self.front.data)
-        copy = self.front
-        list = []
-        while(copy is not self.back.prev):
-            list.append(copy.next.data)
-            copy = copy.next
-        return str(list)
+        current = self.front
+        result = []
+        while current:
+            result.append(current.data)
+            current = current.next
+        return str(result)

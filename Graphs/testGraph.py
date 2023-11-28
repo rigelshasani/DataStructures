@@ -55,8 +55,9 @@ class A2_PartB_TestCase(unittest.TestCase):
         rc = the_graph.add_edge(7, 10, 3)
         self.assertEqual(rc, True)
 
-        for i in range(0,10):
+        for i in range(1,10):
             rc = the_graph.add_edge(0,i)
             self.assertEqual(rc, True)
+        the_graph.show_list()
 
 unittest.main()
