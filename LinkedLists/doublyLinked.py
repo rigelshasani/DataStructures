@@ -134,14 +134,14 @@ class DoublyLinked:
     def is_palindrome(self):
         return self.is_palindrome_rec(self.front, self.back)
     
-    # def __str__(self):
-    #     if self.is_empty():
-    #         return ''
-    #     if self.__len__() == 1:
-    #         return str(self.front.data)
-    #     copy = self.front
-    #     list = []
-    #     while(copy is not self.back.prev):
-    #         list.append(copy.next.data)
-    #         copy = copy.next
-    #     return str(list)
+    def __str__(self):
+        if self.is_empty():
+            return ''
+        if self.__len__() == 1:
+            return str(self.front.data)
+        copy = self.front
+        list = []
+        while(copy is not self.back.prev):
+            list.append(copy.next.data)
+            copy = copy.next
+        return str(list)

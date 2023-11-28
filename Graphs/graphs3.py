@@ -8,7 +8,7 @@ class Graph:
         self.vertNo = number_of_verts
         self.list = []
 
-        for i in range(1, number_of_verts+1):
+        for i in range(0, number_of_verts):
             node = [i, DoublyLinked()]
             self.list.append(node)
 
@@ -25,7 +25,7 @@ class Graph:
         for i in self.list:
             if i[0] == from_idx:
                 flag1 = True
-                copy1 = i
+                copy1 = i[0]
             elif i[0] == to_idx:
                 flag2 = True
         if(not(flag1 and flag2)):
