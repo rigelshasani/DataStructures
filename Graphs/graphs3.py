@@ -55,4 +55,42 @@ class Graph:
             print(i[0], i[1])
         print()
 
+    def has_edge(self, from_idx, to_idx):
+        if from_idx >= self.vertNo or to_idx >= self.vertNo:
+            return False
+
+        for vertex, edges in self.list:
+            if vertex == from_idx:
+                return edges.search(to_idx) is not None
+
+        return False
+    
+    def edge_weight(self, from_idx, to_idx):
+        if from_idx >= self.vertNo or to_idx >= self.vertNo:
+            return None
+
+        for vertex, edges in self.list:
+            if vertex == from_idx:
+                edge = edges.search(to_idx)
+                return None if edge is None else edge[1]  # Return the weight if the edge exists
+
+        return None
+    
+    def get_connected(self, v):
+        if v >= self.vertNo:
+            return []
+
+        connected = []
+        for vertex, edges in self.list:
+            if vertex == v:
+                current = edges.head
+                while current is not None:
+                    connected.append((current.data[0], current.data[1]))  # Tuple of (vertex, weight)
+                    current = current.next
+
+        return connected
+
+
+
+
 
