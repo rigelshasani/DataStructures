@@ -1,6 +1,6 @@
 
 import unittest
-from graphs3 import Graph
+from graphs3NoAppend import Graph
 
 class A2_PartB_TestCase(unittest.TestCase):
     """These are the test cases for functions and classes of a2"""
