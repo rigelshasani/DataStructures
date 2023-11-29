@@ -1,8 +1,3 @@
-#
-#   Author: Reza Khojasteh
-#   These are the unit tests for functions and classes of assingment 2 part B
-#   To use this, run: python test_a2_partc.py
-
 import unittest
 from Heaps import Heap
 
