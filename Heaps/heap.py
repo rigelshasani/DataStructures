@@ -18,13 +18,14 @@ class MinHeap:
         self.heapifyUp()
 
     def heapifyUp(self):
-        index = self.size-1
-        #while the index HAS a parent AND the parent is bigger than me
-        while(self.hasParent(index) and (self.parent(index) > self.arr[index])):
-            #swap them
-            self.swap(self.getParentIndex(index), index)
-            #update index
-            index = self.getParentIndex(index)
+        self.arr.sort()
+        # index = self.size-1
+        # #while the index HAS a parent AND the parent is bigger than me
+        # while(self.hasParent(index) and (self.parent(index) > self.arr[index])):
+        #     #swap them
+        #     self.swap(self.getParentIndex(index), index)
+        #     #update index
+        #     index = self.getParentIndex(index)
 
 
     #helper functions
@@ -73,13 +74,13 @@ class MinHeap:
 
     def popper(self):
         if self.is_empty() != True: 
-            # temp = []
-            # #loop through the array till the last element, and exclude it
-            # for i in range(0, self.size-1):
-            #     temp = temp + [self.arr[i]]
-            # #assign this temporary array to our array
-            # self.arr = temp
-            # #decrease size manually
+            temp = []
+            #loop through the array till the last element, and exclude it
+            for i in range(0, self.size-1):
+                temp = temp + [self.arr[i]]
+            #assign this temporary array to our array
+            self.arr = temp
+            #decrease size manually
             self.size -= 1
             
     
